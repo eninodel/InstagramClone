@@ -11,7 +11,7 @@
         <!--Login View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="LoginViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="LoginViewController" id="BYZ-38-t0r" customClass="LoginViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -70,7 +70,7 @@
         <!--Feed-->
         <scene sceneID="h4j-Mv-7qK">
             <objects>
-                <tableViewController modalPresentationStyle="fullScreen" id="avP-sz-z4T" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="FeedTableViewController" modalPresentationStyle="fullScreen" id="avP-sz-z4T" customClass="FeedTableViewController" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" id="YN8-V4-jQG">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -121,7 +121,11 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Feed" id="rvs-Wg-CoW">
-                        <barButtonItem key="leftBarButtonItem" title="Logout" id="GYj-Cj-uln"/>
+                        <barButtonItem key="leftBarButtonItem" title="Logout" id="doo-nI-CuU">
+                            <connections>
+                                <action selector="didLogout:" destination="avP-sz-z4T" id="eJd-QL-XEK"/>
+                            </connections>
+                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" title="item" image="insta_camera_btn" id="4IW-pb-Eik">
                             <connections>
                                 <segue destination="Jnb-GU-7tO" kind="show" id="qQ0-PW-cR0"/>
@@ -226,7 +230,7 @@
         <!--Feed-->
         <scene sceneID="vA0-Ea-kSe">
             <objects>
-                <navigationController modalPresentationStyle="fullScreen" id="pLU-IW-OoJ" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="FeedNavigationController" modalPresentationStyle="fullScreen" id="pLU-IW-OoJ" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Feed" selectedImage="feed_tab" id="jWM-h4-aWS"/>
                     <navigationItem key="navigationItem" id="MTr-TA-ldW"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="sxo-eb-Y04">

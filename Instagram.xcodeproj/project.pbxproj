@@ -20,6 +20,7 @@
 		E3A97B5D286A36500021FC02 /* InstagramUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = E3A97B5C286A36500021FC02 /* InstagramUITests.m */; };
 		E3A97B5F286A36500021FC02 /* InstagramUITestsLaunchTests.m in Sources */ = {isa = PBXBuildFile; fileRef = E3A97B5E286A36500021FC02 /* InstagramUITestsLaunchTests.m */; };
 		E3A97B70286A570F0021FC02 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E3A97B6F286A570F0021FC02 /* LoginViewController.m */; };
+		E3A97B77286A6FDA0021FC02 /* FeedTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E3A97B76286A6FDA0021FC02 /* FeedTableViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -65,6 +66,8 @@
 		E3A97B5E286A36500021FC02 /* InstagramUITestsLaunchTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = InstagramUITestsLaunchTests.m; sourceTree = "<group>"; };
 		E3A97B6E286A570F0021FC02 /* LoginViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
 		E3A97B6F286A570F0021FC02 /* LoginViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
+		E3A97B75286A6FDA0021FC02 /* FeedTableViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FeedTableViewController.h; sourceTree = "<group>"; };
+		E3A97B76286A6FDA0021FC02 /* FeedTableViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FeedTableViewController.m; sourceTree = "<group>"; };
 		F8611AB5068CB72BFE0A12EC /* Pods-Instagram.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Instagram.release.xcconfig"; path = "Target Support Files/Pods-Instagram/Pods-Instagram.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -149,6 +152,8 @@
 				E3A97B39286A36500021FC02 /* SceneDelegate.h */,
 				E3A97B3A286A36500021FC02 /* SceneDelegate.m */,
 				E3A97B3F286A36500021FC02 /* Main.storyboard */,
+				E3A97B75286A6FDA0021FC02 /* FeedTableViewController.h */,
+				E3A97B76286A6FDA0021FC02 /* FeedTableViewController.m */,
 				E3A97B6E286A570F0021FC02 /* LoginViewController.h */,
 				E3A97B6F286A570F0021FC02 /* LoginViewController.m */,
 				E3A97B42286A36500021FC02 /* Assets.xcassets */,
@@ -414,6 +419,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E3A97B77286A6FDA0021FC02 /* FeedTableViewController.m in Sources */,
 				E3A97B70286A570F0021FC02 /* LoginViewController.m in Sources */,
 				E3A97B38286A36500021FC02 /* AppDelegate.m in Sources */,
 				E3A97B49286A36500021FC02 /* main.m in Sources */,
