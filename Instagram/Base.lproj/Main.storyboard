@@ -140,13 +140,16 @@
         <!--Profile-->
         <scene sceneID="sE2-ap-zLW">
             <objects>
-                <navigationController id="ZZN-Wf-7Jw" sceneMemberID="viewController">
+                <navigationController modalPresentationStyle="fullScreen" id="ZZN-Wf-7Jw" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Profile" selectedImage="profile_tab" id="HGR-xv-DR1"/>
                     <navigationItem key="navigationItem" id="nq4-dB-oqH"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="uH0-32-a49">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="56"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
+                    <connections>
+                        <segue destination="g32-Mq-eP6" kind="relationship" relationship="rootViewController" id="ao9-HO-0Dc"/>
+                    </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="TKX-YP-PXW" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -157,11 +160,12 @@
             <objects>
                 <viewController id="g32-Mq-eP6" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="j6f-3I-8Lq">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <viewLayoutGuide key="safeArea" id="88y-7V-flD"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
+                    <navigationItem key="navigationItem" id="weC-yB-ASn"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="85X-le-0iT" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -170,7 +174,7 @@
         <!--Navigation Controller-->
         <scene sceneID="gL8-T2-2AZ">
             <objects>
-                <navigationController id="Jnb-GU-7tO" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="PostNavigationController" id="Jnb-GU-7tO" sceneMemberID="viewController">
                     <navigationItem key="navigationItem" id="e3j-e7-FUk"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="mnD-Pt-B4y">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
@@ -192,31 +196,55 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="image_placeholder" translatesAutoresizingMaskIntoConstraints="NO" id="Lcg-cM-AJg">
-                                <rect key="frame" x="8" y="96" width="128" height="128"/>
-                                <gestureRecognizers/>
+                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Write a caption here..." textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="oVp-3p-bB3">
+                                <rect key="frame" x="186" y="104" width="212" height="34"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" secondItem="Lcg-cM-AJg" secondAttribute="height" multiplier="1:1" id="PBL-Ua-2lB"/>
-                                    <constraint firstAttribute="height" constant="128" id="c8d-Rh-8ba"/>
+                                    <constraint firstAttribute="width" constant="212" id="cIs-7Y-XCw"/>
                                 </constraints>
-                                <connections>
-                                    <outletCollection property="gestureRecognizers" destination="Mpn-aO-y0B" appends="YES" id="rnA-en-s5C"/>
-                                </connections>
-                            </imageView>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Write a caption here..." textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="oVp-3p-bB3">
-                                <rect key="frame" x="152" y="96" width="246" height="34"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="leading" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yD1-Pn-UpY">
+                                <rect key="frame" x="16" y="135" width="162" height="31"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="162" id="fxT-8g-I1i"/>
+                                </constraints>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" image="folder" catalog="system" title="Pick From Gallery"/>
+                                <connections>
+                                    <action selector="didPickFromGallery:" destination="2sA-Vd-nte" eventType="touchUpInside" id="DKB-Fu-I6S"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="leading" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jcs-Gc-JXH">
+                                <rect key="frame" x="16" y="104" width="139.5" height="31"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="139.5" id="BPl-IO-tJg"/>
+                                </constraints>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" image="camera" catalog="system" title="Open Camera"/>
+                                <connections>
+                                    <action selector="didOpenCamera:" destination="2sA-Vd-nte" eventType="touchUpInside" id="DQr-dA-57m"/>
+                                </connections>
+                            </button>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="rim-SA-AJh">
+                                <rect key="frame" x="16" y="104" width="120" height="120"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="120" id="wVn-27-eck"/>
+                                    <constraint firstAttribute="width" secondItem="rim-SA-AJh" secondAttribute="height" multiplier="1:1" id="yjg-r5-Y2P"/>
+                                </constraints>
+                            </imageView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="G4Z-1J-bOb"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="G4Z-1J-bOb" firstAttribute="trailing" secondItem="oVp-3p-bB3" secondAttribute="trailing" constant="16" id="2Hh-VL-ERt"/>
-                            <constraint firstItem="oVp-3p-bB3" firstAttribute="top" secondItem="Lcg-cM-AJg" secondAttribute="top" id="THy-Mg-BtW"/>
-                            <constraint firstItem="Lcg-cM-AJg" firstAttribute="leading" secondItem="G4Z-1J-bOb" secondAttribute="leading" constant="8" id="TXx-OV-W9X"/>
-                            <constraint firstItem="oVp-3p-bB3" firstAttribute="leading" secondItem="Lcg-cM-AJg" secondAttribute="trailing" constant="16" id="YHC-MJ-fFU"/>
-                            <constraint firstItem="Lcg-cM-AJg" firstAttribute="top" secondItem="G4Z-1J-bOb" secondAttribute="top" constant="8" id="cud-OI-VG2"/>
+                            <constraint firstItem="yD1-Pn-UpY" firstAttribute="leading" secondItem="jcs-Gc-JXH" secondAttribute="leading" id="BBe-by-FTI"/>
+                            <constraint firstItem="jcs-Gc-JXH" firstAttribute="leading" secondItem="G4Z-1J-bOb" secondAttribute="leading" constant="16" id="Ccc-Sc-ccv"/>
+                            <constraint firstItem="rim-SA-AJh" firstAttribute="leading" secondItem="G4Z-1J-bOb" secondAttribute="leading" constant="16" id="J8l-Tg-dMf"/>
+                            <constraint firstItem="yD1-Pn-UpY" firstAttribute="top" secondItem="jcs-Gc-JXH" secondAttribute="bottom" id="cjA-vc-U4t"/>
+                            <constraint firstItem="jcs-Gc-JXH" firstAttribute="top" secondItem="G4Z-1J-bOb" secondAttribute="top" constant="16" id="jk6-qd-krt"/>
+                            <constraint firstItem="rim-SA-AJh" firstAttribute="top" secondItem="G4Z-1J-bOb" secondAttribute="top" constant="16" id="mAJ-ct-t5p"/>
+                            <constraint firstItem="oVp-3p-bB3" firstAttribute="top" secondItem="jcs-Gc-JXH" secondAttribute="top" id="pcB-HF-d78"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Create a Post" id="85U-sS-xfG">
@@ -229,22 +257,20 @@
                     </navigationItem>
                     <connections>
                         <outlet property="captionTextField" destination="oVp-3p-bB3" id="P5w-qF-ZxI"/>
-                        <outlet property="postImageView" destination="Lcg-cM-AJg" id="TMH-hU-0Bp"/>
+                        <outlet property="openCameraButton" destination="jcs-Gc-JXH" id="gUK-E6-8en"/>
+                        <outlet property="pickFromGalleryButton" destination="yD1-Pn-UpY" id="8VW-Yi-zMG"/>
+                        <outlet property="postImageView" destination="rim-SA-AJh" id="NqO-Bl-wTa"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="XgM-Yd-hrN" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-                <tapGestureRecognizer id="Mpn-aO-y0B">
-                    <connections>
-                        <action selector="didTapImage:" destination="2sA-Vd-nte" id="Tad-Mt-fsQ"/>
-                    </connections>
-                </tapGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="4030" y="129"/>
+            <point key="canvasLocation" x="4028.985507246377" y="128.57142857142856"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="12l-sH-nDn">
             <objects>
-                <tabBarController modalPresentationStyle="fullScreen" id="MKc-Bj-Lbj" sceneMemberID="viewController">
+                <tabBarController storyboardIdentifier="FeedProfileTabBarController" modalPresentationStyle="fullScreen" id="MKc-Bj-Lbj" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="Rqy-io-Mwd"/>
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" backgroundImage="profile_tab" id="wDk-4T-iCW">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -279,8 +305,9 @@
         </scene>
     </scenes>
     <resources>
+        <image name="camera" catalog="system" width="128" height="94"/>
         <image name="feed_tab" width="25" height="25"/>
-        <image name="image_placeholder" width="375" height="375"/>
+        <image name="folder" catalog="system" width="128" height="97"/>
         <image name="insta_camera_btn" width="25" height="25"/>
         <image name="profile_tab" width="25" height="25"/>
         <systemColor name="systemBackgroundColor">

@@ -6,12 +6,18 @@
 //
 
 #import "PhotoMapViewController.h"
+#import "Post.h"
+#import "FeedTableViewController.h"
+#import "SceneDelegate.h"
 
 @interface PhotoMapViewController ()
 - (IBAction)didShare:(id)sender;
 @property (weak, nonatomic) IBOutlet UITextField *captionTextField;
 @property (weak, nonatomic) IBOutlet UIImageView *postImageView;
-- (IBAction)didTapImage:(id)sender;
+- (IBAction)didOpenCamera:(id)sender;
+- (IBAction)didPickFromGallery:(id)sender;
+@property (weak, nonatomic) IBOutlet UIButton *openCameraButton;
+@property (weak, nonatomic) IBOutlet UIButton *pickFromGalleryButton;
 
 @end
 
@@ -19,31 +25,33 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    [self.postImageView setHidden:true];
     // Do any additional setup after loading the view.
 }
 
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+    NSLog(@"in prepare for segue");
 }
-*/
 
-- (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary<NSString *,id> *)info {
-    
-    // Get the image captured by the UIImagePickerController
-    UIImage *originalImage = info[UIImagePickerControllerOriginalImage];
-    UIImage *editedImage = info[UIImagePickerControllerEditedImage];
-    if([editedImage isEqual:nil]){
-        
+- (void) didPickImage{
+    NSLog(@"in pick image");
+    [self.pickFromGalleryButton setHidden:true];
+    [self.openCameraButton setHidden:true];
+    [self.postImageView setHidden:false];
+}
+
+- (IBAction)didShare:(id)sender {
+    if([self.postImageView isEqual:nil] || [self.captionTextField.text isEqual:@""]){
+        return;
     }
-    [self.postImageView setImage:originalImage];
-    // Do something with the images (based on your use case)
-    
-    // Dismiss UIImagePickerController to go back to your original view controller
+    [Post postUserImage:self.postImageView.image withCaption:self.captionTextField.text withCompletion:^(BOOL succeeded, NSError *_Nullable error){
+        if(error){
+            NSLog(@"Error in uploading post");
+            NSLog(@"%@", error.description);
+        } else{
+            NSLog(@"Successfully uploaded post");
+        }
+    }];
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 
@@ -60,15 +68,35 @@
         NSLog(@"Camera 🚫 available so we will use photo library instead");
         imagePickerVC.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
     }
+    [self presentViewController:imagePickerVC animated:YES completion:nil];
+}
+
+-(void) displayGallery{
+    UIImagePickerController *imagePickerVC = [UIImagePickerController new];
+    imagePickerVC.delegate = self;
+    imagePickerVC.allowsEditing = YES;
+    imagePickerVC.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
 
     [self presentViewController:imagePickerVC animated:YES completion:nil];
 }
 
-- (IBAction)didTapImage:(id)sender {
-    NSLog(@"clicked image");
-    [self displayCamera];
-    
+- (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary<NSString *,id> *)info {
+    UIImage *originalImage = info[UIImagePickerControllerOriginalImage];
+    UIImage *editedImage = info[UIImagePickerControllerEditedImage];
+    if([editedImage isEqual:nil]){
+        [self.postImageView setImage:originalImage];
+    } else{
+        [self.postImageView setImage:editedImage];
+    }
+    [self didPickImage];
+    [self dismissViewControllerAnimated:YES completion:nil];
 }
-- (IBAction)didShare:(id)sender {
+
+- (IBAction)didPickFromGallery:(id)sender {
+    [self displayGallery];
+}
+
+- (IBAction)didOpenCamera:(id)sender {
+    [self displayCamera];
 }
 @end
