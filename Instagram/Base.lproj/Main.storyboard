@@ -152,6 +152,21 @@
             </objects>
             <point key="canvasLocation" x="80" y="1002"/>
         </scene>
+        <!--View Controller-->
+        <scene sceneID="Idd-Oc-lvn">
+            <objects>
+                <viewController id="g32-Mq-eP6" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="j6f-3I-8Lq">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="88y-7V-flD"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="85X-le-0iT" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1041" y="1002"/>
+        </scene>
         <!--Navigation Controller-->
         <scene sceneID="gL8-T2-2AZ">
             <objects>
@@ -172,17 +187,21 @@
         <!--Create a Post-->
         <scene sceneID="RrG-2S-flh">
             <objects>
-                <viewController id="2sA-Vd-nte" sceneMemberID="viewController">
+                <viewController id="2sA-Vd-nte" customClass="PhotoMapViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="bON-nI-IDb">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Lcg-cM-AJg">
+                            <imageView clipsSubviews="YES" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="image_placeholder" translatesAutoresizingMaskIntoConstraints="NO" id="Lcg-cM-AJg">
                                 <rect key="frame" x="8" y="96" width="128" height="128"/>
+                                <gestureRecognizers/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="Lcg-cM-AJg" secondAttribute="height" multiplier="1:1" id="PBL-Ua-2lB"/>
                                     <constraint firstAttribute="height" constant="128" id="c8d-Rh-8ba"/>
                                 </constraints>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="Mpn-aO-y0B" appends="YES" id="rnA-en-s5C"/>
+                                </connections>
                             </imageView>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Write a caption here..." textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="oVp-3p-bB3">
                                 <rect key="frame" x="152" y="96" width="246" height="34"/>
@@ -202,10 +221,23 @@
                     </view>
                     <navigationItem key="navigationItem" title="Create a Post" id="85U-sS-xfG">
                         <barButtonItem key="leftBarButtonItem" title="Cancel" id="Vb8-re-ENi"/>
-                        <barButtonItem key="rightBarButtonItem" title="Share" id="OHY-ef-Ld5"/>
+                        <barButtonItem key="rightBarButtonItem" title="Share" id="OHY-ef-Ld5">
+                            <connections>
+                                <action selector="didShare:" destination="2sA-Vd-nte" id="I57-xU-rai"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="captionTextField" destination="oVp-3p-bB3" id="P5w-qF-ZxI"/>
+                        <outlet property="postImageView" destination="Lcg-cM-AJg" id="TMH-hU-0Bp"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="XgM-Yd-hrN" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="Mpn-aO-y0B">
+                    <connections>
+                        <action selector="didTapImage:" destination="2sA-Vd-nte" id="Tad-Mt-fsQ"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="4030" y="129"/>
         </scene>
@@ -248,6 +280,7 @@
     </scenes>
     <resources>
         <image name="feed_tab" width="25" height="25"/>
+        <image name="image_placeholder" width="375" height="375"/>
         <image name="insta_camera_btn" width="25" height="25"/>
         <image name="profile_tab" width="25" height="25"/>
         <systemColor name="systemBackgroundColor">

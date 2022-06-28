@@ -21,6 +21,7 @@
 		E3A97B5F286A36500021FC02 /* InstagramUITestsLaunchTests.m in Sources */ = {isa = PBXBuildFile; fileRef = E3A97B5E286A36500021FC02 /* InstagramUITestsLaunchTests.m */; };
 		E3A97B70286A570F0021FC02 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E3A97B6F286A570F0021FC02 /* LoginViewController.m */; };
 		E3A97B77286A6FDA0021FC02 /* FeedTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E3A97B76286A6FDA0021FC02 /* FeedTableViewController.m */; };
+		E3A97B7A286B6B820021FC02 /* PhotoMapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E3A97B79286B6B820021FC02 /* PhotoMapViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -68,6 +69,8 @@
 		E3A97B6F286A570F0021FC02 /* LoginViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
 		E3A97B75286A6FDA0021FC02 /* FeedTableViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FeedTableViewController.h; sourceTree = "<group>"; };
 		E3A97B76286A6FDA0021FC02 /* FeedTableViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FeedTableViewController.m; sourceTree = "<group>"; };
+		E3A97B78286B6B820021FC02 /* PhotoMapViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PhotoMapViewController.h; sourceTree = "<group>"; };
+		E3A97B79286B6B820021FC02 /* PhotoMapViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PhotoMapViewController.m; sourceTree = "<group>"; };
 		F8611AB5068CB72BFE0A12EC /* Pods-Instagram.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Instagram.release.xcconfig"; path = "Target Support Files/Pods-Instagram/Pods-Instagram.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -148,6 +151,8 @@
 			isa = PBXGroup;
 			children = (
 				E3A97B36286A36500021FC02 /* AppDelegate.h */,
+				E3A97B78286B6B820021FC02 /* PhotoMapViewController.h */,
+				E3A97B79286B6B820021FC02 /* PhotoMapViewController.m */,
 				E3A97B37286A36500021FC02 /* AppDelegate.m */,
 				E3A97B39286A36500021FC02 /* SceneDelegate.h */,
 				E3A97B3A286A36500021FC02 /* SceneDelegate.m */,
@@ -419,6 +424,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E3A97B7A286B6B820021FC02 /* PhotoMapViewController.m in Sources */,
 				E3A97B77286A6FDA0021FC02 /* FeedTableViewController.m in Sources */,
 				E3A97B70286A570F0021FC02 /* LoginViewController.m in Sources */,
 				E3A97B38286A36500021FC02 /* AppDelegate.m in Sources */,
