@@ -11,14 +11,14 @@
 #import "SceneDelegate.h"
 
 @interface PhotoMapViewController ()
-- (IBAction)didShare:(id)sender;
 @property (weak, nonatomic) IBOutlet UITextField *captionTextField;
 @property (weak, nonatomic) IBOutlet UIImageView *postImageView;
-- (IBAction)didOpenCamera:(id)sender;
-- (IBAction)didPickFromGallery:(id)sender;
 @property (weak, nonatomic) IBOutlet UIButton *openCameraButton;
 @property (weak, nonatomic) IBOutlet UIButton *pickFromGalleryButton;
 
+- (IBAction)didOpenCamera:(id)sender;
+- (IBAction)didPickFromGallery:(id)sender;
+- (IBAction)didShare:(id)sender;
 @end
 
 @implementation PhotoMapViewController
@@ -50,8 +50,8 @@
             NSLog(@"%@", error.description);
         } else{
             NSLog(@"Successfully uploaded post");
+            [self.delegate didSharePost];
         }
-        [self.delegate didSharePost];
     }];
     [self dismissViewControllerAnimated:YES completion:nil];
 }

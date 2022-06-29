@@ -13,10 +13,12 @@
 #import "PostTableViewCell.h"
 #import "PhotoMapViewController.h"
 
+static int QueryLimit = 10;
+
 @interface FeedTableViewController () <PhotoMapViewControllerDelegate>
 - (IBAction)didLogout:(id)sender;
-@property (strong, nonatomic) NSArray *postsArray;
-@property (assign, nonatomic) NSInteger reloadThreshold;
+@property (strong, nonatomic) NSMutableArray *postsArray;
+@property (assign, nonatomic) BOOL reachedBottom;
 @end
 
 @implementation FeedTableViewController
@@ -24,7 +26,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.reloadThreshold = 0;
+    self.reachedBottom = NO;
     self.refreshControl = [[UIRefreshControl alloc] init];
     [self.refreshControl addTarget:self action: @selector(fetchData) forControlEvents:UIControlEventValueChanged];
     [self.tableView insertSubview:self.refreshControl atIndex:0];
@@ -45,23 +47,61 @@
     return self.postsArray.count;
 }
 
+- (void) getFirstPost{
+    PFQuery *query = [PFQuery queryWithClassName:@"Post"];
+    [query orderByDescending:@"createdAt"];
+    [query includeKey:@"author"];
+    [query includeKey:@"image"];
+    query.limit = 1;
+    
+    // fetch data asynchronously
+    [self.refreshControl beginRefreshing];
+    [query findObjectsInBackgroundWithBlock:^(NSArray *posts, NSError *error) {
+        if (posts != nil) {
+            // do something with the array of object returned by the call
+            if(self.postsArray.count == 0){
+                self.postsArray = (NSMutableArray*) posts;
+            } else{
+                NSMutableArray *newPostsArray = [[NSMutableArray alloc] init];
+                [newPostsArray addObject:posts[0]];
+                for(int i = 1; i < self.postsArray.count; i ++){
+                    [newPostsArray addObject:self.postsArray[i]];
+                }
+                self.postsArray = newPostsArray;
+            }
+            [self.tableView reloadData];
+            [self.refreshControl endRefreshing];
+        } else {
+            NSLog(@"%@", error.localizedDescription);
+        }
+    }];
+}
+
+// query builder methods and block callback functions
 - (void) fetchData {
     NSLog(@"in fetchData");
     PFQuery *query = [PFQuery queryWithClassName:@"Post"];
     [query orderByDescending:@"createdAt"];
     [query includeKey:@"author"];
     [query includeKey:@"image"];
-    query.limit = 20;
-    query.skip = self.reloadThreshold;
-
+    query.limit = QueryLimit;
+    query.skip = self.postsArray.count;
+    
     // fetch data asynchronously
+    [self.refreshControl beginRefreshing];
     [query findObjectsInBackgroundWithBlock:^(NSArray *posts, NSError *error) {
         if (posts != nil) {
             // do something with the array of object returned by the call
-            self.postsArray = posts;
+            if(self.postsArray.count == 0){
+                self.postsArray = (NSMutableArray*) posts;
+            } else{
+                [self.postsArray addObjectsFromArray:posts];
+                if(posts.count == 0){
+                    self.reachedBottom = YES;
+                }
+            }
             [self.tableView reloadData];
             [self.refreshControl endRefreshing];
-//            self.reloadThreshold += 20;
         } else {
             NSLog(@"%@", error.localizedDescription);
         }
@@ -73,6 +113,9 @@
     PostTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"PostTableViewCell" forIndexPath:indexPath];
     cell.post = self.postsArray[indexPath.row];
     [cell initializeCell];
+    if(indexPath.row == self.postsArray.count - 1 && self.reachedBottom == NO){
+        [self fetchData];
+    }
     return cell;
 }
 
@@ -88,9 +131,11 @@
     SceneDelegate *sceneDelegate = (SceneDelegate * ) UIApplication.sharedApplication.connectedScenes.allObjects.firstObject.delegate;
     sceneDelegate.window.rootViewController = loginViewController;
 }
+
+
 - (void)didSharePost {
     NSLog(@"in did share post");
-    [self fetchData];
+    [self getFirstPost];
 }
 
 @end

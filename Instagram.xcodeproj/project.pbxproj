@@ -158,6 +158,7 @@
 			children = (
 				E3A97B36286A36500021FC02 /* AppDelegate.h */,
 				E3A97B78286B6B820021FC02 /* PhotoMapViewController.h */,
+				E3A97B8A286CCFDC0021FC02 /* New Group */,
 				E3A97B79286B6B820021FC02 /* PhotoMapViewController.m */,
 				E3A97B84286B9A500021FC02 /* Post.h */,
 				E3A97B85286B9A500021FC02 /* Post.m */,
@@ -194,6 +195,13 @@
 				E3A97B5E286A36500021FC02 /* InstagramUITestsLaunchTests.m */,
 			);
 			path = InstagramUITests;
+			sourceTree = "<group>";
+		};
+		E3A97B8A286CCFDC0021FC02 /* New Group */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = "New Group";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
