@@ -76,7 +76,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="511" id="ULX-FX-R0M">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="PostTableViewCell" rowHeight="511" id="ULX-FX-R0M" customClass="PostTableViewCell">
                                 <rect key="frame" x="0.0" y="44.5" width="414" height="511"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="ULX-FX-R0M" id="PgP-ug-uFf">
@@ -109,10 +109,16 @@
                                         <constraint firstItem="zJp-1P-bOQ" firstAttribute="top" secondItem="6u9-dJ-u0D" secondAttribute="bottom" constant="8" id="YHo-Gf-QUT"/>
                                         <constraint firstAttribute="trailingMargin" secondItem="zJp-1P-bOQ" secondAttribute="trailing" constant="8" id="cDT-KF-Mcf"/>
                                         <constraint firstAttribute="trailing" secondItem="X7M-Le-RgM" secondAttribute="trailing" id="cpT-GO-h0m"/>
+                                        <constraint firstAttribute="bottom" secondItem="zJp-1P-bOQ" secondAttribute="bottom" constant="39.5" id="gHq-H8-sDy"/>
                                         <constraint firstItem="6u9-dJ-u0D" firstAttribute="leading" secondItem="PgP-ug-uFf" secondAttribute="leading" constant="16" id="rdn-HI-p1j"/>
                                         <constraint firstItem="X7M-Le-RgM" firstAttribute="leading" secondItem="PgP-ug-uFf" secondAttribute="leading" id="xFh-uB-REG"/>
                                     </constraints>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="postBodyLabel" destination="zJp-1P-bOQ" id="KAc-98-TNb"/>
+                                    <outlet property="postImageView" destination="X7M-Le-RgM" id="NQT-xv-I7h"/>
+                                    <outlet property="usernameLabel" destination="6u9-dJ-u0D" id="GFJ-dD-cVs"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>

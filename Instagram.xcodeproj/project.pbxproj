@@ -23,6 +23,7 @@
 		E3A97B77286A6FDA0021FC02 /* FeedTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E3A97B76286A6FDA0021FC02 /* FeedTableViewController.m */; };
 		E3A97B7A286B6B820021FC02 /* PhotoMapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E3A97B79286B6B820021FC02 /* PhotoMapViewController.m */; };
 		E3A97B86286B9A500021FC02 /* Post.m in Sources */ = {isa = PBXBuildFile; fileRef = E3A97B85286B9A500021FC02 /* Post.m */; };
+		E3A97B89286BC03A0021FC02 /* PostTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E3A97B88286BC03A0021FC02 /* PostTableViewCell.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -74,6 +75,8 @@
 		E3A97B79286B6B820021FC02 /* PhotoMapViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PhotoMapViewController.m; sourceTree = "<group>"; };
 		E3A97B84286B9A500021FC02 /* Post.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Post.h; sourceTree = "<group>"; };
 		E3A97B85286B9A500021FC02 /* Post.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Post.m; sourceTree = "<group>"; };
+		E3A97B87286BC03A0021FC02 /* PostTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PostTableViewCell.h; sourceTree = "<group>"; };
+		E3A97B88286BC03A0021FC02 /* PostTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PostTableViewCell.m; sourceTree = "<group>"; };
 		F8611AB5068CB72BFE0A12EC /* Pods-Instagram.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Instagram.release.xcconfig"; path = "Target Support Files/Pods-Instagram/Pods-Instagram.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -162,6 +165,8 @@
 				E3A97B39286A36500021FC02 /* SceneDelegate.h */,
 				E3A97B3A286A36500021FC02 /* SceneDelegate.m */,
 				E3A97B3F286A36500021FC02 /* Main.storyboard */,
+				E3A97B87286BC03A0021FC02 /* PostTableViewCell.h */,
+				E3A97B88286BC03A0021FC02 /* PostTableViewCell.m */,
 				E3A97B75286A6FDA0021FC02 /* FeedTableViewController.h */,
 				E3A97B76286A6FDA0021FC02 /* FeedTableViewController.m */,
 				E3A97B6E286A570F0021FC02 /* LoginViewController.h */,
@@ -436,6 +441,7 @@
 				E3A97B86286B9A500021FC02 /* Post.m in Sources */,
 				E3A97B49286A36500021FC02 /* main.m in Sources */,
 				E3A97B3B286A36500021FC02 /* SceneDelegate.m in Sources */,
+				E3A97B89286BC03A0021FC02 /* PostTableViewCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
