@@ -9,8 +9,14 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface PhotoMapViewController : UIViewController <UIImagePickerControllerDelegate, UINavigationControllerDelegate>
+@protocol PhotoMapViewControllerDelegate <NSObject>
 
+-(void) didSharePost;
+
+@end
+
+@interface PhotoMapViewController : UIViewController <UIImagePickerControllerDelegate, UINavigationControllerDelegate>
+@property (nonatomic, weak) id<PhotoMapViewControllerDelegate> delegate;
 @end
 
 NS_ASSUME_NONNULL_END

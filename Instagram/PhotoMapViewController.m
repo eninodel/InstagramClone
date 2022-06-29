@@ -51,6 +51,7 @@
         } else{
             NSLog(@"Successfully uploaded post");
         }
+        [self.delegate didSharePost];
     }];
     [self dismissViewControllerAnimated:YES completion:nil];
 }

@@ -11,8 +11,9 @@
 #import "AppDelegate.h"
 #import "SceneDelegate.h"
 #import "PostTableViewCell.h"
+#import "PhotoMapViewController.h"
 
-@interface FeedTableViewController ()
+@interface FeedTableViewController () <PhotoMapViewControllerDelegate>
 - (IBAction)didLogout:(id)sender;
 @property (strong, nonatomic) NSArray *postsArray;
 @property (assign, nonatomic) NSInteger reloadThreshold;
@@ -30,7 +31,11 @@
     [self fetchData];
 }
 
-#pragma mark - Table view data source
+- (void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
+    UINavigationController *navigationController = [segue destinationViewController];
+    PhotoMapViewController *photoVC = (PhotoMapViewController *) navigationController.topViewController;
+    photoVC.delegate = self;
+}
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
     return 1;
@@ -43,6 +48,7 @@
 - (void) fetchData {
     NSLog(@"in fetchData");
     PFQuery *query = [PFQuery queryWithClassName:@"Post"];
+    [query orderByDescending:@"createdAt"];
     [query includeKey:@"author"];
     [query includeKey:@"image"];
     query.limit = 20;
@@ -82,4 +88,9 @@
     SceneDelegate *sceneDelegate = (SceneDelegate * ) UIApplication.sharedApplication.connectedScenes.allObjects.firstObject.delegate;
     sceneDelegate.window.rootViewController = loginViewController;
 }
+- (void)didSharePost {
+    NSLog(@"in did share post");
+    [self fetchData];
+}
+
 @end
