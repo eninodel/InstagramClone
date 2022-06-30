@@ -7,6 +7,7 @@
 
 #import "LoginViewController.h"
 #import "Parse/Parse.h"
+#import "Profile.h"
 
 
 @interface LoginViewController ()
@@ -44,8 +45,6 @@
             NSLog(@"User log in failed: %@", error.localizedDescription);
         } else {
             NSLog(@"User logged in successfully");
-            
-            // display view controller that needs to shown after successful login
             [self performSegueWithIdentifier:@"loginSegue" sender:nil];
         }
     }];
@@ -58,7 +57,10 @@
     // set user properties
     newUser.username = self.usernameTextField.text;
     newUser.password = self.passwordTextField.text;
-    
+    Profile *userProfile = [Profile new];
+    UIImage *profileImage = [UIImage imageNamed:@"profile_tab"];
+    userProfile.profileImage = [Profile getPFFileFromImage: profileImage];
+    newUser[@"Profile"] = userProfile;
     // call sign up function on the object
     [newUser signUpInBackgroundWithBlock:^(BOOL succeeded, NSError * error) {
         if (error != nil) {

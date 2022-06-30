@@ -13,8 +13,9 @@
 #import "PostTableViewCell.h"
 #import "PhotoMapViewController.h"
 #import "Post.h"
+#import "DetailsViewController.h"
 
-static int QueryLimit = 5;
+static int QueryLimit = 20;
 
 @interface FeedTableViewController () <PhotoMapViewControllerDelegate>
 - (IBAction)didLogout:(id)sender;
@@ -37,8 +38,14 @@ static int QueryLimit = 5;
 
 - (void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
     UINavigationController *navigationController = [segue destinationViewController];
-    PhotoMapViewController *photoVC = (PhotoMapViewController *) navigationController.topViewController;
-    photoVC.delegate = self;
+    if([segue.identifier isEqualToString:@"FeedtoDetails"]){
+        DetailsViewController *detailsVC = (DetailsViewController *) navigationController.topViewController;
+        NSIndexPath *path = [self.tableView indexPathForCell:sender];
+        detailsVC.post = self.postsArray[path.section];
+    } else{
+        PhotoMapViewController *photoVC = (PhotoMapViewController *) navigationController.topViewController;
+        photoVC.delegate = self;
+    }
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
@@ -58,7 +65,13 @@ static int QueryLimit = 5;
     header.textLabel.text = sectionHeader;
     return header;
 }
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    UIStoryboard *story = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+    DetailsViewController *detailsVC = [story instantiateViewControllerWithIdentifier:@"DetailsViewController"];
+    detailsVC.post = self.postsArray[indexPath.section];
+    [self.navigationController pushViewController:detailsVC animated:YES];
 
+}
 - (void) getFirstPost{
     PFQuery *query = [PFQuery queryWithClassName:@"Post"];
     [query orderByDescending:@"createdAt"];
@@ -76,7 +89,7 @@ static int QueryLimit = 5;
             } else{
                 NSMutableArray *newPostsArray = [[NSMutableArray alloc] init];
                 [newPostsArray addObject:posts[0]];
-                for(int i = 1; i < self.postsArray.count; i ++){
+                for(int i = 0; i < self.postsArray.count; i ++){
                     [newPostsArray addObject:self.postsArray[i]];
                 }
                 self.postsArray = newPostsArray;

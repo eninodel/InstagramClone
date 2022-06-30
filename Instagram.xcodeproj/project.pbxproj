@@ -25,6 +25,9 @@
 		E3A97B86286B9A500021FC02 /* Post.m in Sources */ = {isa = PBXBuildFile; fileRef = E3A97B85286B9A500021FC02 /* Post.m */; };
 		E3A97B93286D11B90021FC02 /* TableSectionHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = E3A97B92286D11B90021FC02 /* TableSectionHeaderView.m */; };
 		E3A97B99286D15800021FC02 /* PostTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E3A97B98286D15800021FC02 /* PostTableViewCell.m */; };
+		E3A97B9F286E24FE0021FC02 /* Profile.m in Sources */ = {isa = PBXBuildFile; fileRef = E3A97B9E286E24FE0021FC02 /* Profile.m */; };
+		E3A97BA2286E4E520021FC02 /* ProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E3A97BA1286E4E520021FC02 /* ProfileViewController.m */; };
+		E3A97BA5286E58CF0021FC02 /* DetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E3A97BA4286E58CF0021FC02 /* DetailsViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -80,6 +83,12 @@
 		E3A97B92286D11B90021FC02 /* TableSectionHeaderView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TableSectionHeaderView.m; sourceTree = "<group>"; };
 		E3A97B97286D15750021FC02 /* PostTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PostTableViewCell.h; sourceTree = "<group>"; };
 		E3A97B98286D15800021FC02 /* PostTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PostTableViewCell.m; sourceTree = "<group>"; };
+		E3A97B9D286E24FE0021FC02 /* Profile.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Profile.h; sourceTree = "<group>"; };
+		E3A97B9E286E24FE0021FC02 /* Profile.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Profile.m; sourceTree = "<group>"; };
+		E3A97BA0286E4E520021FC02 /* ProfileViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ProfileViewController.h; sourceTree = "<group>"; };
+		E3A97BA1286E4E520021FC02 /* ProfileViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ProfileViewController.m; sourceTree = "<group>"; };
+		E3A97BA3286E58CF0021FC02 /* DetailsViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DetailsViewController.h; sourceTree = "<group>"; };
+		E3A97BA4286E58CF0021FC02 /* DetailsViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DetailsViewController.m; sourceTree = "<group>"; };
 		F8611AB5068CB72BFE0A12EC /* Pods-Instagram.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Instagram.release.xcconfig"; path = "Target Support Files/Pods-Instagram/Pods-Instagram.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -201,6 +210,10 @@
 				E3A97B79286B6B820021FC02 /* PhotoMapViewController.m */,
 				E3A97B6E286A570F0021FC02 /* LoginViewController.h */,
 				E3A97B6F286A570F0021FC02 /* LoginViewController.m */,
+				E3A97BA0286E4E520021FC02 /* ProfileViewController.h */,
+				E3A97BA1286E4E520021FC02 /* ProfileViewController.m */,
+				E3A97BA3286E58CF0021FC02 /* DetailsViewController.h */,
+				E3A97BA4286E58CF0021FC02 /* DetailsViewController.m */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -209,6 +222,8 @@
 			isa = PBXGroup;
 			children = (
 				E3A97B84286B9A500021FC02 /* Post.h */,
+				E3A97B9D286E24FE0021FC02 /* Profile.h */,
+				E3A97B9E286E24FE0021FC02 /* Profile.m */,
 				E3A97B85286B9A500021FC02 /* Post.m */,
 			);
 			path = Models;
@@ -464,12 +479,15 @@
 			buildActionMask = 2147483647;
 			files = (
 				E3A97B93286D11B90021FC02 /* TableSectionHeaderView.m in Sources */,
+				E3A97B9F286E24FE0021FC02 /* Profile.m in Sources */,
 				E3A97B99286D15800021FC02 /* PostTableViewCell.m in Sources */,
+				E3A97BA5286E58CF0021FC02 /* DetailsViewController.m in Sources */,
 				E3A97B7A286B6B820021FC02 /* PhotoMapViewController.m in Sources */,
 				E3A97B77286A6FDA0021FC02 /* FeedTableViewController.m in Sources */,
 				E3A97B70286A570F0021FC02 /* LoginViewController.m in Sources */,
 				E3A97B38286A36500021FC02 /* AppDelegate.m in Sources */,
 				E3A97B86286B9A500021FC02 /* Post.m in Sources */,
+				E3A97BA2286E4E520021FC02 /* ProfileViewController.m in Sources */,
 				E3A97B49286A36500021FC02 /* main.m in Sources */,
 				E3A97B3B286A36500021FC02 /* SceneDelegate.m in Sources */,
 			);
