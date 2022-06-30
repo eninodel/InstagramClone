@@ -19,6 +19,8 @@
 - (IBAction)didOpenCamera:(id)sender;
 - (IBAction)didPickFromGallery:(id)sender;
 - (IBAction)didShare:(id)sender;
+- (IBAction)didCancel:(id)sender;
+
 @end
 
 @implementation PhotoMapViewController
@@ -38,6 +40,10 @@
     [self.pickFromGalleryButton setHidden:true];
     [self.openCameraButton setHidden:true];
     [self.postImageView setHidden:false];
+}
+
+- (IBAction)didCancel:(id)sender {
+    [self dismissViewControllerAnimated:YES completion:nil];
 }
 
 - (IBAction)didShare:(id)sender {

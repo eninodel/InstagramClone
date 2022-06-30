@@ -12,8 +12,9 @@
 #import "SceneDelegate.h"
 #import "PostTableViewCell.h"
 #import "PhotoMapViewController.h"
+#import "Post.h"
 
-static int QueryLimit = 10;
+static int QueryLimit = 5;
 
 @interface FeedTableViewController () <PhotoMapViewControllerDelegate>
 - (IBAction)didLogout:(id)sender;
@@ -30,6 +31,7 @@ static int QueryLimit = 10;
     self.refreshControl = [[UIRefreshControl alloc] init];
     [self.refreshControl addTarget:self action: @selector(fetchData) forControlEvents:UIControlEventValueChanged];
     [self.tableView insertSubview:self.refreshControl atIndex:0];
+    [self.tableView registerClass:[UITableViewHeaderFooterView class] forHeaderFooterViewReuseIdentifier:@"TableViewSectionHeader"];
     [self fetchData];
 }
 
@@ -40,11 +42,21 @@ static int QueryLimit = 10;
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-    return 1;
+    return self.postsArray.count;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return self.postsArray.count;
+    return 1;
+}
+
+- (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
+    UITableViewHeaderFooterView *header = [tableView dequeueReusableHeaderFooterViewWithIdentifier:@"TableViewSectionHeader"];
+    Post *post = (Post *) self.postsArray[section];
+    NSString *sectionHeader = post.author.username;
+    sectionHeader = [sectionHeader stringByAppendingString:@"    "];
+    sectionHeader = [sectionHeader stringByAppendingString:post.createdAt.description];
+    header.textLabel.text = sectionHeader;
+    return header;
 }
 
 - (void) getFirstPost{
@@ -111,9 +123,9 @@ static int QueryLimit = 10;
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     PostTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"PostTableViewCell" forIndexPath:indexPath];
-    cell.post = self.postsArray[indexPath.row];
+    cell.post = self.postsArray[indexPath.section];
     [cell initializeCell];
-    if(indexPath.row == self.postsArray.count - 1 && self.reachedBottom == NO){
+    if(indexPath.section == self.postsArray.count - 1 && self.reachedBottom == NO){
         [self fetchData];
     }
     return cell;

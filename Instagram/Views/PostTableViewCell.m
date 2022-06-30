@@ -9,7 +9,6 @@
 #import "UIImageView+AFNetworking.h"
 
 @interface PostTableViewCell()
-@property (weak, nonatomic) IBOutlet UILabel *usernameLabel;
 @property (weak, nonatomic) IBOutlet UILabel *postBodyLabel;
 @property (weak, nonatomic) IBOutlet UIImageView *postImageView;
 
@@ -28,7 +27,6 @@
 }
 
 - (void) initializeCell{
-    self.usernameLabel.text = self.post.author.username;
     self.postBodyLabel.text = self.post.caption;
     NSURL *postImageURL = [NSURL URLWithString:self.post.image.url];
     [self.postImageView setImageWithURL: postImageURL];

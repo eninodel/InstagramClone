@@ -89,35 +89,25 @@
                                                 <constraint firstAttribute="width" secondItem="X7M-Le-RgM" secondAttribute="height" multiplier="1:1" id="AGP-9l-OzH"/>
                                             </constraints>
                                         </imageView>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="username" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6u9-dJ-u0D">
-                                            <rect key="frame" x="16" y="422" width="76" height="21"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                            <nil key="textColor"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="postText" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zJp-1P-bOQ">
-                                            <rect key="frame" x="16" y="451" width="370" height="20.5"/>
+                                            <rect key="frame" x="36" y="430" width="65" height="41.5"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                     </subviews>
                                     <constraints>
+                                        <constraint firstItem="zJp-1P-bOQ" firstAttribute="top" secondItem="X7M-Le-RgM" secondAttribute="bottom" constant="16" id="DNn-Yh-WRb"/>
                                         <constraint firstItem="X7M-Le-RgM" firstAttribute="top" secondItem="PgP-ug-uFf" secondAttribute="top" id="Lxu-da-D7I"/>
-                                        <constraint firstItem="zJp-1P-bOQ" firstAttribute="leading" secondItem="6u9-dJ-u0D" secondAttribute="leading" id="SWJ-aT-E0K"/>
-                                        <constraint firstItem="6u9-dJ-u0D" firstAttribute="top" secondItem="X7M-Le-RgM" secondAttribute="bottom" constant="8" id="Xvo-Kq-0GP"/>
-                                        <constraint firstItem="zJp-1P-bOQ" firstAttribute="top" secondItem="6u9-dJ-u0D" secondAttribute="bottom" constant="8" id="YHo-Gf-QUT"/>
-                                        <constraint firstAttribute="trailingMargin" secondItem="zJp-1P-bOQ" secondAttribute="trailing" constant="8" id="cDT-KF-Mcf"/>
                                         <constraint firstAttribute="trailing" secondItem="X7M-Le-RgM" secondAttribute="trailing" id="cpT-GO-h0m"/>
+                                        <constraint firstItem="zJp-1P-bOQ" firstAttribute="leading" secondItem="PgP-ug-uFf" secondAttribute="leadingMargin" constant="16" id="eqd-ja-UQL"/>
                                         <constraint firstAttribute="bottom" secondItem="zJp-1P-bOQ" secondAttribute="bottom" constant="39.5" id="gHq-H8-sDy"/>
-                                        <constraint firstItem="6u9-dJ-u0D" firstAttribute="leading" secondItem="PgP-ug-uFf" secondAttribute="leading" constant="16" id="rdn-HI-p1j"/>
                                         <constraint firstItem="X7M-Le-RgM" firstAttribute="leading" secondItem="PgP-ug-uFf" secondAttribute="leading" id="xFh-uB-REG"/>
                                     </constraints>
                                 </tableViewCellContentView>
                                 <connections>
                                     <outlet property="postBodyLabel" destination="zJp-1P-bOQ" id="KAc-98-TNb"/>
                                     <outlet property="postImageView" destination="X7M-Le-RgM" id="NQT-xv-I7h"/>
-                                    <outlet property="usernameLabel" destination="6u9-dJ-u0D" id="GFJ-dD-cVs"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -254,7 +244,11 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Create a Post" id="85U-sS-xfG">
-                        <barButtonItem key="leftBarButtonItem" title="Cancel" id="Vb8-re-ENi"/>
+                        <barButtonItem key="leftBarButtonItem" title="Cancel" id="Vb8-re-ENi">
+                            <connections>
+                                <action selector="didCancel:" destination="2sA-Vd-nte" id="Upq-0o-Kvw"/>
+                            </connections>
+                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" title="Share" id="OHY-ef-Ld5">
                             <connections>
                                 <action selector="didShare:" destination="2sA-Vd-nte" id="I57-xU-rai"/>

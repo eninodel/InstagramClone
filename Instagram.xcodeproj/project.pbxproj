@@ -23,7 +23,8 @@
 		E3A97B77286A6FDA0021FC02 /* FeedTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E3A97B76286A6FDA0021FC02 /* FeedTableViewController.m */; };
 		E3A97B7A286B6B820021FC02 /* PhotoMapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E3A97B79286B6B820021FC02 /* PhotoMapViewController.m */; };
 		E3A97B86286B9A500021FC02 /* Post.m in Sources */ = {isa = PBXBuildFile; fileRef = E3A97B85286B9A500021FC02 /* Post.m */; };
-		E3A97B89286BC03A0021FC02 /* PostTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E3A97B88286BC03A0021FC02 /* PostTableViewCell.m */; };
+		E3A97B93286D11B90021FC02 /* TableSectionHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = E3A97B92286D11B90021FC02 /* TableSectionHeaderView.m */; };
+		E3A97B99286D15800021FC02 /* PostTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E3A97B98286D15800021FC02 /* PostTableViewCell.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -75,8 +76,10 @@
 		E3A97B79286B6B820021FC02 /* PhotoMapViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PhotoMapViewController.m; sourceTree = "<group>"; };
 		E3A97B84286B9A500021FC02 /* Post.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Post.h; sourceTree = "<group>"; };
 		E3A97B85286B9A500021FC02 /* Post.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Post.m; sourceTree = "<group>"; };
-		E3A97B87286BC03A0021FC02 /* PostTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PostTableViewCell.h; sourceTree = "<group>"; };
-		E3A97B88286BC03A0021FC02 /* PostTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PostTableViewCell.m; sourceTree = "<group>"; };
+		E3A97B91286D11B90021FC02 /* TableSectionHeaderView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TableSectionHeaderView.h; sourceTree = "<group>"; };
+		E3A97B92286D11B90021FC02 /* TableSectionHeaderView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TableSectionHeaderView.m; sourceTree = "<group>"; };
+		E3A97B97286D15750021FC02 /* PostTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PostTableViewCell.h; sourceTree = "<group>"; };
+		E3A97B98286D15800021FC02 /* PostTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PostTableViewCell.m; sourceTree = "<group>"; };
 		F8611AB5068CB72BFE0A12EC /* Pods-Instagram.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Instagram.release.xcconfig"; path = "Target Support Files/Pods-Instagram/Pods-Instagram.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -157,21 +160,13 @@
 			isa = PBXGroup;
 			children = (
 				E3A97B36286A36500021FC02 /* AppDelegate.h */,
-				E3A97B78286B6B820021FC02 /* PhotoMapViewController.h */,
-				E3A97B8A286CCFDC0021FC02 /* New Group */,
-				E3A97B79286B6B820021FC02 /* PhotoMapViewController.m */,
-				E3A97B84286B9A500021FC02 /* Post.h */,
-				E3A97B85286B9A500021FC02 /* Post.m */,
 				E3A97B37286A36500021FC02 /* AppDelegate.m */,
+				E3A97B8D286D10EB0021FC02 /* Views */,
+				E3A97B8B286D10950021FC02 /* ViewControllers */,
+				E3A97B8C286D10C20021FC02 /* Models */,
 				E3A97B39286A36500021FC02 /* SceneDelegate.h */,
 				E3A97B3A286A36500021FC02 /* SceneDelegate.m */,
 				E3A97B3F286A36500021FC02 /* Main.storyboard */,
-				E3A97B87286BC03A0021FC02 /* PostTableViewCell.h */,
-				E3A97B88286BC03A0021FC02 /* PostTableViewCell.m */,
-				E3A97B75286A6FDA0021FC02 /* FeedTableViewController.h */,
-				E3A97B76286A6FDA0021FC02 /* FeedTableViewController.m */,
-				E3A97B6E286A570F0021FC02 /* LoginViewController.h */,
-				E3A97B6F286A570F0021FC02 /* LoginViewController.m */,
 				E3A97B42286A36500021FC02 /* Assets.xcassets */,
 				E3A97B44286A36500021FC02 /* LaunchScreen.storyboard */,
 				E3A97B47286A36500021FC02 /* Info.plist */,
@@ -197,11 +192,37 @@
 			path = InstagramUITests;
 			sourceTree = "<group>";
 		};
-		E3A97B8A286CCFDC0021FC02 /* New Group */ = {
+		E3A97B8B286D10950021FC02 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				E3A97B75286A6FDA0021FC02 /* FeedTableViewController.h */,
+				E3A97B76286A6FDA0021FC02 /* FeedTableViewController.m */,
+				E3A97B78286B6B820021FC02 /* PhotoMapViewController.h */,
+				E3A97B79286B6B820021FC02 /* PhotoMapViewController.m */,
+				E3A97B6E286A570F0021FC02 /* LoginViewController.h */,
+				E3A97B6F286A570F0021FC02 /* LoginViewController.m */,
 			);
-			path = "New Group";
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		E3A97B8C286D10C20021FC02 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				E3A97B84286B9A500021FC02 /* Post.h */,
+				E3A97B85286B9A500021FC02 /* Post.m */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		E3A97B8D286D10EB0021FC02 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				E3A97B91286D11B90021FC02 /* TableSectionHeaderView.h */,
+				E3A97B92286D11B90021FC02 /* TableSectionHeaderView.m */,
+				E3A97B97286D15750021FC02 /* PostTableViewCell.h */,
+				E3A97B98286D15800021FC02 /* PostTableViewCell.m */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -442,6 +463,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E3A97B93286D11B90021FC02 /* TableSectionHeaderView.m in Sources */,
+				E3A97B99286D15800021FC02 /* PostTableViewCell.m in Sources */,
 				E3A97B7A286B6B820021FC02 /* PhotoMapViewController.m in Sources */,
 				E3A97B77286A6FDA0021FC02 /* FeedTableViewController.m in Sources */,
 				E3A97B70286A570F0021FC02 /* LoginViewController.m in Sources */,
@@ -449,7 +472,6 @@
 				E3A97B86286B9A500021FC02 /* Post.m in Sources */,
 				E3A97B49286A36500021FC02 /* main.m in Sources */,
 				E3A97B3B286A36500021FC02 /* SceneDelegate.m in Sources */,
-				E3A97B89286BC03A0021FC02 /* PostTableViewCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
